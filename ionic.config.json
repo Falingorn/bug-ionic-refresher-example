@@ -1,0 +1,7 @@
+{
+  "name": "RefresherBugExample",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
