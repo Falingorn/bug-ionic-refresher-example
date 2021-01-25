@@ -1,20 +1,45 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Blank </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-refresher
+    #refresher
+    slot="fixed"
+    pullFactor="0.7"
+    pullMin="140"
+    pullMax="200"
+    closeDuration="300ms"
+    snapbackDuration="200ms"
+    (ionRefresh)="handlePullToRefresh()"
+  >
+    <div class="custom-refresher">
+      <div class="min">pullMin</div>
+      <div class="max">pullMax</div>
+    </div>
+  </ion-refresher>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div *ngIf="!isLoading">
+      some content
+      <ion-card>
+        <ion-card-content>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nesciunt
+          dolorum molestiae nisi. In numquam nam magni libero expedita,
+          architecto rerum, facere laboriosam nisi, nemo eius. Iure praesentium
+          veniam aut?
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngIf="isLoading">
+      <ion-card>
+        <ion-card-content>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
 </ion-content>

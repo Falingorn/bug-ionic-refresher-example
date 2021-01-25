@@ -1,11 +1,6 @@
 #container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
 }
 
 #container strong {
@@ -24,4 +19,28 @@
 
 #container a {
   text-decoration: none;
+}
+
+.custom-refresher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  height: 240px;
+  width: 100%;
+}
+.min,
+.max {
+  width: 100%;
+  display: block;
+}
+.min {
+  background: #ddd;
+  height: 140px;
+}
+.max {
+  background: #f00;
+  color: #fff;
+  height: 60px;
+  border-bottom: 10px solid #000;
 }
